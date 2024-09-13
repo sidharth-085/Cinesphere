@@ -6,7 +6,6 @@ import androidx.activity.compose.setContent
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
-import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavType
@@ -19,7 +18,6 @@ import sid.app.cinesphere.media_details.presentation.details.MediaDetailsViewMod
 import sid.app.cinesphere.media_details.presentation.details.MediaDetailScreen
 import sid.app.cinesphere.media_details.presentation.details.SomethingWentWrong
 import sid.app.cinesphere.media_details.presentation.similar_media.SimilarMediaListScreen
-import sid.app.cinesphere.media_details.presentation.watch_video.WatchVideoScreen
 import sid.app.cinesphere.search.presentation.SearchScreen
 import sid.app.cinesphere.ui.theme.TheMoviesTheme
 import sid.app.cinesphere.util.Route
@@ -137,33 +135,5 @@ fun Navigation(
                 name = name,
             )
         }
-
-        composable(
-            "${Route.WATCH_VIDEO_SCREEN}?videoId={videoId}",
-            arguments = listOf(
-                navArgument("videoId") { type = NavType.StringType }
-            )
-        ) {
-
-            val videoId = it.arguments?.getString("videoId") ?: ""
-
-            WatchVideoScreen(
-                lifecycleOwner = LocalLifecycleOwner.current,
-                videoId = videoId
-            )
-        }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

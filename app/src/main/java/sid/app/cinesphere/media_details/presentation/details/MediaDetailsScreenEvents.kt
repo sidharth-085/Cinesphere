@@ -13,6 +13,4 @@ sealed class MediaDetailsScreenEvents {
     ) : MediaDetailsScreenEvents()
 
     object Refresh : MediaDetailsScreenEvents()
-
-    object NavigateToWatchVideo : MediaDetailsScreenEvents()
 }

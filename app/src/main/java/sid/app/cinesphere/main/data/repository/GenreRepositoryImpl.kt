@@ -22,7 +22,6 @@ class GenreRepositoryImpl @Inject constructor(
     genreDb: GenresDatabase
 ) : GenreRepository {
 
-
     private val genreDao = genreDb.genreDao
 
     override suspend fun getGenres(

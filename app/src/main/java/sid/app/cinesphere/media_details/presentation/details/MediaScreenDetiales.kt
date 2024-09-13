@@ -1,6 +1,5 @@
 package sid.app.cinesphere.media_details.presentation.details
 
-import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -24,13 +23,11 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.ImageNotSupported
-import androidx.compose.material.icons.rounded.PlayArrow
 import androidx.compose.material.pullrefresh.PullRefreshIndicator
 import androidx.compose.material.pullrefresh.pullRefresh
 import androidx.compose.material.pullrefresh.rememberPullRefreshState
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -42,11 +39,9 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -124,11 +119,8 @@ fun MediaDetailScreen(
             ) {
 
                 VideoSection(
-                    navController = navController,
-                    mediaDetailsScreenState = mediaDetailsScreenState,
                     media = media,
                     imageState = imagePainter.state,
-                    onEvent = onEvent
                 ) { color ->
                     averageColor = color
                 }
@@ -176,37 +168,15 @@ fun MediaDetailScreen(
 
 @Composable
 fun VideoSection(
-    navController: NavController,
-    mediaDetailsScreenState: MediaDetailsScreenState,
     media: Media,
     imageState: AsyncImagePainter.State,
-    onEvent: (MediaDetailsScreenEvents) -> Unit,
     onImageLoaded: (color: Color) -> Unit
 ) {
 
-    val context = LocalContext.current
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .height(250.dp)
-            .clickable {
-
-                if (mediaDetailsScreenState.videosList.isNotEmpty()) {
-                    onEvent(MediaDetailsScreenEvents.NavigateToWatchVideo)
-                    navController.navigate(
-                        "${Route.WATCH_VIDEO_SCREEN}?videoId=${mediaDetailsScreenState.videoId}"
-                    )
-                } else {
-                    Toast
-                        .makeText(
-                            context,
-                            context.getString(R.string.no_video_is_available_at_the_moment),
-                            Toast.LENGTH_SHORT
-                        )
-                        .show()
-                }
-
-            },
+            .height(250.dp),
         shape = RoundedCornerShape(0),
         elevation = CardDefaults.cardElevation(6.dp)
     ) {
@@ -224,21 +194,6 @@ fun VideoSection(
             ) { color ->
                 onImageLoaded(color)
             }
-
-            Box(
-                modifier = Modifier
-                    .clip(RoundedCornerShape(50.dp))
-                    .size(50.dp)
-                    .alpha(0.7f)
-                    .background(Color.LightGray)
-            )
-            Icon(
-                Icons.Rounded.PlayArrow,
-                contentDescription = stringResource(id = R.string.watch_trailer),
-                tint = Color.Black,
-                modifier = Modifier.size(35.dp)
-            )
-
         }
     }
 }
@@ -298,7 +253,7 @@ fun InfoSection(
         else mediaDetailsScreenState.tvGenresList
     )
 
-    Column {
+    Column (modifier = Modifier.padding(start = 4.dp, end = 16.dp)){
         Spacer(modifier = Modifier.height(260.dp))
 
         Text(
@@ -376,15 +331,6 @@ fun InfoSection(
         )
 
         Spacer(modifier = Modifier.height(6.dp))
-
-        Text(
-            modifier = Modifier.padding(end = 8.dp),
-            text = mediaDetailsScreenState.readableTime,
-            fontFamily = font,
-            fontSize = 15.sp,
-            color = MaterialTheme.colorScheme.onSurface,
-            lineHeight = 16.sp
-        )
     }
 }
 
@@ -394,17 +340,6 @@ fun OverviewSection(
     media: Media
 ) {
     Column {
-        Text(
-            modifier = Modifier.padding(horizontal = 22.dp),
-            text = "\"${media.tagline ?: ""}\"",
-            fontFamily = font,
-            fontSize = 17.sp,
-            fontStyle = FontStyle.Italic,
-            color = MaterialTheme.colorScheme.onSurface,
-            lineHeight = 16.sp
-        )
-
-        Spacer(modifier = Modifier.height(16.dp))
 
         Text(
             modifier = Modifier.padding(horizontal = 22.dp),

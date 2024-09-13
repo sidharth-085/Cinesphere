@@ -27,14 +27,6 @@ class MediaDetailsViewModel @Inject constructor(
 
     fun onEvent(event: MediaDetailsScreenEvents) {
         when (event) {
-            is MediaDetailsScreenEvents.NavigateToWatchVideo -> {
-                _mediaDetailsScreenState.update {
-                    it.copy(
-                        videoId = mediaDetailsScreenState.value.videosList.shuffled()[0]
-                    )
-                }
-            }
-
             is MediaDetailsScreenEvents.Refresh -> {
                 _mediaDetailsScreenState.update {
                     it.copy(

@@ -11,5 +11,4 @@ class MoviesApplication : Application() {
 
         Timber.plant(Timber.DebugTree())
     }
-
 }

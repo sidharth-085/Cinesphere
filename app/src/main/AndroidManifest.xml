@@ -14,12 +14,12 @@
         android:name=".MoviesApplication"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.TheMoviesFixed"
+        android:theme="@style/Theme.Cinesphere"
         tools:targetApi="31">
         <activity
             android:name=".main.presentation.main.MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.TheMoviesFixed">
+            android:theme="@style/Theme.Cinesphere">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

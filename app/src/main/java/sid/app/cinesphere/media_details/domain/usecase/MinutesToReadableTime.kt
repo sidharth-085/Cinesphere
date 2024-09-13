@@ -1,8 +1,5 @@
 package sid.app.cinesphere.media_details.domain.usecase
 
-/**
- * @author Ahmed Guedmioui
- */
 class MinutesToReadableTime(
     private val minutes: Int
 ) {

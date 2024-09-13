@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">The Movies Info</string>
-
     <string name="trending">Trending Now</string>
     <string name="home">Home</string>
     <string name="popular">Popular</string>
@@ -30,5 +29,4 @@
     <string name="similar_to">Similar to\n✨ %1$s ✨</string>
     <string name="something_went_wrong">Something went wrong</string>
     <string name="couldn_t_load_genres">Couldn\'t load genres</string>
-
 </resources>
