@@ -16,16 +16,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Cinesphere"
         tools:targetApi="31">
+
+        <activity
+            android:name="sid.app.cinesphere.main.presentation.splash_screen.SplashScreenActivity"
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+
         <activity
             android:name=".main.presentation.main.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.Cinesphere">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
+
     </application>
 
 </manifest>

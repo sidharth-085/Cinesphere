@@ -6,7 +6,6 @@ import androidx.activity.compose.setContent
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -19,7 +18,7 @@ import sid.app.cinesphere.media_details.presentation.details.MediaDetailScreen
 import sid.app.cinesphere.media_details.presentation.details.SomethingWentWrong
 import sid.app.cinesphere.media_details.presentation.similar_media.SimilarMediaListScreen
 import sid.app.cinesphere.search.presentation.SearchScreen
-import sid.app.cinesphere.ui.theme.TheMoviesTheme
+import sid.app.cinesphere.ui.theme.CinesphereTheme
 import sid.app.cinesphere.util.Route
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -30,16 +29,10 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
-            TheMoviesTheme {
+            CinesphereTheme {
 
                 val mainViewModel = hiltViewModel<MainViewModel>()
                 val mainUiState = mainViewModel.mainUiState.collectAsState().value
-
-                installSplashScreen().apply {
-                    setKeepOnScreenCondition {
-                        mainViewModel.showSplashScreen.value
-                    }
-                }
 
                 Navigation(
                     mainUiState = mainUiState,

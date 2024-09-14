@@ -35,13 +35,10 @@ class MainViewModel @Inject constructor(
     private val _mainUiState = MutableStateFlow(MainUiState())
     val mainUiState = _mainUiState.asStateFlow()
 
-    val showSplashScreen = mutableStateOf(true)
-
     init {
         load()
         viewModelScope.launch {
             delay(500)
-            showSplashScreen.value = false
         }
     }
 

@@ -15,7 +15,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
-
 private val LightColors = lightColorScheme(
     primary = md_theme_light_primary,
     onPrimary = md_theme_light_onPrimary,
@@ -47,7 +46,6 @@ private val LightColors = lightColorScheme(
     outlineVariant = md_theme_light_outlineVariant,
     scrim = md_theme_light_scrim,
 )
-
 
 private val DarkColors = darkColorScheme(
     primary = md_theme_dark_primary,
@@ -81,9 +79,8 @@ private val DarkColors = darkColorScheme(
     scrim = md_theme_dark_scrim,
 )
 
-
 @Composable
-fun TheMoviesTheme(
+fun CinesphereTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
@@ -126,19 +123,4 @@ fun TheMoviesTheme(
         shapes = Shapes(),
         content = content
     )
-}
-
-@Composable
-fun StatusBar(
-    color: Color,
-    backgroundColor: Color
-) {
-
-    val systemUiController = rememberSystemUiController()
-    DisposableEffect(key1 = color) {
-        systemUiController.setStatusBarColor(color)
-        onDispose {
-            systemUiController.setStatusBarColor(backgroundColor)
-        }
-    }
 }
