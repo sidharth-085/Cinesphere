@@ -21,6 +21,7 @@ import sid.app.cinesphere.search.presentation.SearchScreen
 import sid.app.cinesphere.ui.theme.CinesphereTheme
 import sid.app.cinesphere.util.Route
 import dagger.hilt.android.AndroidEntryPoint
+import sid.app.cinesphere.main.presentation.contact_us_screen.ContactUs
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -74,6 +75,10 @@ fun Navigation(
                 navController = navController,
                 mainUiState = mainUiState,
             )
+        }
+
+        composable(Route.CONTACT_US_SCREEN) {
+            ContactUs()
         }
 
         composable(

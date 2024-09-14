@@ -29,4 +29,5 @@
     <string name="similar_to">Similar to\n✨ %1$s ✨</string>
     <string name="something_went_wrong">Something went wrong</string>
     <string name="couldn_t_load_genres">Couldn\'t load genres</string>
+    <string name="contact_us">Contact Us</string>
 </resources>

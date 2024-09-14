@@ -103,7 +103,6 @@ fun MediaHomeScreen(
 
     val refreshState = rememberPullRefreshState(refreshing, ::refresh)
 
-
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -206,15 +205,3 @@ fun MediaHomeScreen(
     )
 
 }
-
-
-
-
-
-
-
-
-
-
-
-

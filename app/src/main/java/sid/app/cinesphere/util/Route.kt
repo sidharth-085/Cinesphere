@@ -5,4 +5,5 @@ object Route {
     const val MEDIA_MAIN_SCREEN = "media_main_screen"
     const val SIMILAR_MEDIA_LIST_SCREEN = "similar_media_list_screen"
     const val MEDIA_DETAILS_SCREEN = "media_detail_screen"
+    const val CONTACT_US_SCREEN = "contact_us_screen"
 }

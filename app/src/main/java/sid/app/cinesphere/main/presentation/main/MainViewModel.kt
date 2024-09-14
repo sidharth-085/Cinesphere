@@ -1,6 +1,5 @@
 package sid.app.cinesphere.main.presentation.main
 
-import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import sid.app.cinesphere.main.data.remote.api.MediaApi.Companion.API_KEY
