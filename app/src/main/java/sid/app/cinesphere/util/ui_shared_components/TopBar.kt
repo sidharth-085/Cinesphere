@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Search
@@ -43,15 +42,6 @@ fun NonFocusedTopBar(
             .height(BigRadius.dp)
             .offset { IntOffset(x = 0, y = toolbarOffsetHeightPx) }
     ) {
-//        NonFocusedSearchBar(
-//            modifier = Modifier
-//                .height(50.dp)
-//                .clickable {
-//                    navController.navigate(Route.SEARCH_SCREEN)
-//                }
-//                .padding(horizontal = 8.dp),
-//            placeholderText = stringResource(R.string.search_for_a_movie_or_tv_series),
-//        )
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -79,7 +69,7 @@ fun NonFocusedTopBar(
                         navController.navigate(Route.CONTACT_US_SCREEN)
                     }
                     .clip(CircleShape),
-                tint = Color(0xFF551E50)
+                tint = Color(0xFFAA3CA0)
             )
         }
     }

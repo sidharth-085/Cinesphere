@@ -1,6 +1,7 @@
 package sid.app.cinesphere.main.presentation.contact_us_screen
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -9,6 +10,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -29,7 +31,9 @@ import sid.app.cinesphere.R
 @Composable
 fun ContactUs() {
     Column (
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier
+            .fillMaxSize()
+            .background(MaterialTheme.colorScheme.surface),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
@@ -42,6 +46,7 @@ fun ContactUs() {
         Text(
             text = "Contact Us",
             fontSize = 35.sp,
+            color = MaterialTheme.colorScheme.onBackground,
             fontFamily = FontFamily.Serif,
             fontWeight = FontWeight.Bold,
             fontStyle = FontStyle.Italic,
@@ -53,6 +58,7 @@ fun ContactUs() {
         Text(
             text = "We value your feedback! Reach out with questions or suggestions through our Contact Us page, and let us enhance your app experience together.",
             fontSize = 20.sp,
+            color = MaterialTheme.colorScheme.onBackground,
             fontFamily = FontFamily.Serif,
             modifier = Modifier
                 .padding(37.dp, 20.dp, 37.dp, 20.dp)
@@ -79,6 +85,7 @@ fun ContactUs() {
 
             Text(
                 text = "sidharthkapoor085@gmail.com",
+                color = MaterialTheme.colorScheme.onBackground,
                 fontSize = 18.sp,
                 fontFamily = FontFamily.Serif
             )
