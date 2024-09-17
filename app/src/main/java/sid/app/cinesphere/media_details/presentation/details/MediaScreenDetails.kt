@@ -1,5 +1,6 @@
 package sid.app.cinesphere.media_details.presentation.details
 
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -290,10 +291,8 @@ fun InfoSection(
 
         Row(verticalAlignment = Alignment.CenterVertically) {
 
-
             Text(
-                text =
-                if (media.releaseDate != Constants.unavailable)
+                text = if (media.releaseDate != Constants.unavailable && media.releaseDate.take(4) != "-1,-")
                     media.releaseDate.take(4)
                 else "",
 
